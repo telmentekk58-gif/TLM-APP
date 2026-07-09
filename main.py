@@ -36,6 +36,5 @@ if st.button("Ирээдүйг шинжлэх 🧠"):
                 st.markdown(response.text)
                 
             except Exception as e:
-                st.error(f"AI холболтонд алдаа гарлаа: {e}")
-    else:
-        st.error("⚠️ Хөтөч ажиллуулахын тулд нэр болон сонирхлоо заавал бичнэ үү!")
+                st.error(f"AI холболтонд алдаа гарлаа: {e]")"
+    
