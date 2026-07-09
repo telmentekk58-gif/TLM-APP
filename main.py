@@ -12,7 +12,7 @@ st.set_page_config(page_title="AI Career Guide", page_icon="🎯")
 st.title("🎯 Ирээдүйн Мэргэжил Сонголтын AI Туслах")
 st.write("Таны сонирхол, давуу талд тулгуурлан хамгийн ирээдүйтэй мэргэжлийг Gemini AI бодож олно.")
 
-# 3. Хэрэглэгчийн оролт (Хувьсагчийн нэрийг англи болгов)
+# 3. Хэрэглэгчийн оролт
 user_name = st.text_input("Таны нэр хэн бэ?", placeholder="Энд нэрээ бичнэ үү...")
 user_interest = st.text_input("Та юу сонирхдог вэ? (Жишээ нь: зураг зурах, тоглоом тоглох, математик, спорт...)", placeholder="Сонирхлоо дэлгэрэнгүй бичвэл AI илүү гоё хариулна...")
 
@@ -21,17 +21,8 @@ if st.button("Ирээдүйг шинжлэх 🧠"):
     if user_name and user_interest:
         with st.spinner("Gemini AI танд зориулж мэргэжил сонголтыг тооцоолж байна..."):
             try:
-                # Prompt-ийг англи хувьсагчаар холбов
-                prompt_text = f"""
-                Хэрэглэгчийн нэр: {user_name}
-                Хэрэглэгчийн сонирхол: {user_interest}
-                
-                Дээрх мэдээлэлд тулгуурлан Монгол хэлээр маш сонирхолтой, урам зориг өгсөн хариулт бэлдэнэ үү.
-                Дараах бүтцээр хариулна уу:
-                1. {user_name}-д урам зориг өгсөн мэндчилгээ.
-                2. Түүний сонирхолд тохирох ирээдүйн хамгийн эрэлттэй 1-2 мэргэжлийн нэр, тайлбар.
-                3. Тэр мэргэжлээр амжилтанд хүрэхийн тулд одооноос юу сурах хэрэгтэй вэ (Зөвлөгөө).
-                """
+                # Систем гацахгүй байх үүднээс зааврыг англиар өгөв (Гэхдээ монголоор хариулна)
+                prompt_text = f"The user's name is {user_name}. Their interest is: {user_interest}. Based on this, provide a creative and encouraging career advice in Mongolian language. Format the response beautifully with paragraphs."
                 
                 # Gemini модель руу илгээх
                 response = client.models.generate_content(
